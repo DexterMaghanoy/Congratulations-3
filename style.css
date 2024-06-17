@@ -1,0 +1,281 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #b784db;
+  margin: 0;
+}
+.envelope {
+  position: relative;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
+.back {
+  position: relative;
+  width: 250px;
+  height: 200px;
+  background: #6247aa;
+  border-radius: 10%;
+}
+.front {
+  position: absolute;
+  border-right: 130px solid #815ac0;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 120px;
+  z-index: 3;
+  border-radius: 10%;
+
+}
+.front:before {
+  content: "";
+  position: absolute;
+  border-left: 130px solid #815ac0;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  height: 0;
+  width: 0;
+  top: -100px;
+  left: -120px;
+  border-radius: 10%;
+}
+.front:after {
+  content: "";
+  position: absolute;
+  border-bottom: 105px solid #7251b5;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  height: 0;
+  width: 0;
+  top: -5px;
+  left: -120px;
+  border-radius: 10%;
+}
+.top {
+  position: absolute;
+  border-top: 105px solid #9163cb;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  height: 0;
+  width: 0;
+  top: 0;
+  transform-origin: top;
+  transition: 0.4s;
+  border-radius: 10%;
+}
+.envelope:hover .top {
+  transform: rotateX(160deg);
+}
+.letter {
+  position: absolute;
+  background: white;
+  width: 230px;
+  height: 180px;
+  top: 10px;
+  left: 10px;
+  transition: 0.2s;
+  border-radius: 10%;
+}
+.envelope:hover .letter {
+  transform: translateY(-100px);
+  z-index: 2;
+  border-radius: 10%;
+}
+.text1 {
+  position: absolute;
+  color: white;
+  font-family: sans-serif;
+  top: -50%;
+}
+.text {
+  text-align: center;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+  font-weight: bold;
+  color: black;
+  position: relative;
+  top: -20px;
+  left: 20px;
+}
+
+
+
+
+.heart {
+  position: relative;
+  background-color: red;
+  height: 70px;
+  width: 70px;
+  top: 25px;
+  left: 25px;
+  transform: rotate(-45deg);
+  box-shadow: -5px 10px 90px red;
+  animation: untoldcoding 0.8s linear infinite;
+}
+
+.heart-text {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  padding-bottom: 80%;
+  transform: translate(-50%, -50%) rotate(45deg); /* Adjust rotation if needed */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  z-index: 1; /* Ensure text is above other elements */
+}
+
+
+@keyframes untoldcoding {
+  0% {
+    transform: rotate(-45deg) scale(1.05);
+  }
+  70% {
+    transform: rotate(-45deg) scale(1);
+  }
+  100% {
+    transform: rotate(-45deg) scale(0.8);
+  }
+}
+.heart:before {
+  content: "";
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  background-color: red;
+  top: -40px;
+  border-radius: 50px;
+}
+.heart:after {
+  content: "";
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  background-color: red;
+  right: -40px;
+  border-radius: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* Ensure modal is above other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px; /* Increased padding for better spacing */
+
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Drop shadow for depth */
+  width: 80%;
+  max-width: 80%; /* Adjust maximum width for smaller screens */
+  max-height: 80%; /* Limit maximum height for smaller screens */
+  overflow-y: auto; /* Enable scrolling if content exceeds modal height */
+  z-index: 1100; /* Ensure modal content is above modal background */
+  background-image: linear-gradient(to right, #ffc0cb, #fd7ebe);
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 70%; /* Adjust width for smaller screens */
+    height: 70%;
+    max-width: 70%; /* Adjust maximum width for smaller screens */
+    background-image: linear-gradient(to right, #ffc0cb, #fd7ebe);
+
+  }
+}
+
+/* Additional styling for overlay */
+.modal-overlay {
+  position: fixed;
+  z-index: 900; /* Ensure overlay is between modal and other elements */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+/* Keyframes for animation */
+@keyframes neon {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8),
+      0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.8),
+      0 0 40px rgba(255, 0, 0, 0.8);
+  }
+  25% {
+    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8),
+      0 0 30px rgba(0, 255, 0, 0.8), 0 0 40px rgba(0, 255, 0, 0.8),
+      0 0 50px rgba(0, 255, 0, 0.8);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(0, 0, 255, 0.8),
+      0 0 40px rgba(0, 0, 255, 0.8), 0 0 50px rgba(0, 0, 255, 0.8),
+      0 0 60px rgba(0, 0, 255, 0.8);
+  }
+  75% {
+    text-shadow: 0 0 40px rgba(255, 0, 255, 0.8),
+      0 0 50px rgba(255, 0, 255, 0.8), 0 0 60px rgba(255, 0, 255, 0.8),
+      0 0 70px rgba(255, 0, 255, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 50px rgba(255, 255, 0, 0.8),
+      0 0 60px rgba(255, 255, 0, 0.8), 0 0 70px rgba(255, 255, 0, 0.8),
+      0 0 80px rgba(255, 255, 0, 0.8);
+  }
+}
+
+/* Define the neon text effect */
+.neon-text {
+  font-size: 2em; /* Adjust the font size as needed */
+  text-align: center; /* Center align the text */
+  color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Neon light color with some transparency */
+  animation: neon 4s infinite linear; /* Apply the neon animation */
+}
