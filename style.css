@@ -6,6 +6,11 @@ body {
   background: #b784db;
   margin: 0;
 }
+/* Add this to style.css */
+.modal-content p {
+  text-align: justify;
+}
+
 .envelope {
   position: relative;
   cursor: pointer;
